@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '3.1.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id 'java'
+}
+
+group = 'com.example.charactershop.shopping'
+version = '1.0.0'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot Web (REST API)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// JPA & MySQL (데이터베이스)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'mysql:mysql-connector-java:8.0.33'  // 최신 버전 확인 후 수정 가능
+
+
+	// Lombok (코드 간결화)
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Spring Security (로그인 & 인증)
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// 개발 편의 도구 (Spring Boot DevTools)
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// 테스트 관련 라이브러리
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
